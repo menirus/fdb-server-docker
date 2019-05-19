@@ -12,7 +12,7 @@ RUN apt-get update && \
 
 # Install FoundationDB Binaries
 
-ARG FDB_VERSION
+ARG FDB_VERSION="6.0.18"
 ARG FDB_WEBSITE=https://www.foundationdb.org
 
 WORKDIR /var/fdb/tmp
