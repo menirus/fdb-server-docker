@@ -12,6 +12,8 @@ function create_server_environment() {
 		public_ip=127.0.0.1
 	elif [[ "$FDB_NETWORKING_MODE" == "container" ]]; then
 		public_ip=$(grep `hostname` /etc/hosts | sed -e "s/\s *`hostname`.*//")
+	elif [[ "$FDB_NETWORKING_MODE" == "kubernetes" ]]; then
+		public_ip=$KUBE_NODE_EXTERNAL_IP
 	else
 		echo "Unknown FDB Networking mode \"$FDB_NETWORKING_MODE\"" 1>&2
 		exit 1
