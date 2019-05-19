@@ -1,11 +1,6 @@
 # fdb-server-docker
 
 The aim of this repo is to get modify the docker image to deploy foundationdb in a Kubernetes cluster.
-On trying various approaches to it, I found the below things:
-* For the cluster discovery, the co-ordinators should be exposed to the outside world from Kubernetes network using either NodePort Service, LoadBalancer Service or Ingress
-* Deployed single node foundationdb cluster using NodePort service
-* NodePort services run only in the ports in range 30000-32767
-* FoundationDB internal implementations have a strict requirements on the port numbers, internal address and public address should both run in the same port. (hence changed default 4500 port to 31111)
 
 ## What I did to deploy fdb cluster and discover it from outside world?
 * Extended the official foundationdb docker image to support a new environment variable "KUBE_NODE_EXTERNAL_IP" 
