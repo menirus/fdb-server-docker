@@ -3,6 +3,8 @@ FROM ubuntu:18.04
 
 # Install dependencies
 
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
+
 RUN apt-get update && \
 	apt-get install -y curl>=7.58.0-2ubuntu3.6 \
 	dnsutils>=1:9.11.3+dfsg-1ubuntu1.7 && \
